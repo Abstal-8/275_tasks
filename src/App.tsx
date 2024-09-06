@@ -9,12 +9,16 @@ function App(): React.JSX.Element {
             <p>Derek Johnson</p>
             <h1>New header!</h1>
             <img src="../img_assets/Oranges.jpg" alt="Oranges." />
-            <ol>
-                <p>Top 3 favorite anime of all time.</p>
-                <li>1. Yu Yu Hakusho</li>
-                <li>2. Log Horizon</li>
-                <li>3. FLCL</li>
-            </ol>
+            <div
+                style={{ backgroundColor: "red", width: "50%", height: "30%" }}
+            >
+                <ol>
+                    <p>Top 3 favorite anime of all time.</p>
+                    <li>Yu Yu Hakusho</li>
+                    <li>Log Horizon</li>
+                    <li>FLCL</li>
+                </ol>
+            </div>
             <Button
                 onClick={() => {
                     console.log("Hello World!");
