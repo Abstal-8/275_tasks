@@ -13,7 +13,7 @@ export function bookEndList(numbers: number[]): number[] {
     }
 
     const bookEnd = [...numbers];
-    bookEnd.splice(1, numbers.length, numbers[length - 1]);
+    bookEnd.splice(1, numbers.length - 1, numbers.length - 1);
     return bookEnd;
 }
 
@@ -46,7 +46,9 @@ export function stringsToIntegers(numbers: string[]): number[] {
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
     const noSign = amounts.map((value: string): number =>
-        value[0] === "?" ? Number.parseInt(value.substring(1)) : 0,
+        value.includes("$") ? Number.parseInt(value.substring(1))
+        : Number.isInteger(Number.parseInt(value)) ? Number.parseInt(value)
+        : 0,
     );
     return noSign;
 };
