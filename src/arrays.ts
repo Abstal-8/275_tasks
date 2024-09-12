@@ -5,9 +5,9 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    if (numbers.length == 0) {
+    if (numbers.length === 0) {
         return numbers;
-    } else if (numbers.length == 1) {
+    } else if (numbers.length === 1) {
         const bookDoubled = [...numbers, ...numbers];
         return bookDoubled;
     }
@@ -91,7 +91,7 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    if (colors.length == 0) {
+    if (colors.length === 0) {
         return true;
     }
     const colorCheck = colors.every((color: string): boolean =>
@@ -112,6 +112,9 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
+    if (addends.length === 0) {
+        return "0=0";
+    }
     const sum = addends.reduce(
         (total: number, num: number): number => (total += num),
         0,
