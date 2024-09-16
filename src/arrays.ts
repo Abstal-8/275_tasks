@@ -12,8 +12,7 @@ export function bookEndList(numbers: number[]): number[] {
         return bookDoubled;
     }
 
-    const bookEnd = [...numbers];
-    bookEnd.splice(1, numbers.length - 1, numbers.length - 1);
+    const bookEnd = [numbers[0], numbers[numbers.length - 1]];
     return bookEnd;
 }
 
