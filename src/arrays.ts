@@ -92,15 +92,13 @@ export function allRGB(colors: string[]): boolean {
     if (colors.length === 0) {
         return true;
     }
-    const redCheck = colors.some((color: string): boolean =>
-        color.includes("red"),
+    const redCheck = colors.some((color: string): boolean => color === "red");
+
+    const greenCheck = colors.some(
+        (color: string): boolean => color === "green",
     );
-    const greenCheck = colors.some((color: string): boolean =>
-        color.includes("green"),
-    );
-    const blueCheck = colors.some((color: string): boolean =>
-        color.includes("blue"),
-    );
+
+    const blueCheck = colors.some((color: string): boolean => color === "blue");
 
     return redCheck && greenCheck && blueCheck;
 }
