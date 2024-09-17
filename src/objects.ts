@@ -43,7 +43,16 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    const externalQuestion = { ...question };
+
+    if (question.type === "short_answer_question") {
+        return true;
+    } else {
+        const validResponse = externalQuestion.options.some(
+            (value: string): boolean => answer === value,
+        );
+        return validResponse;
+    }
 }
 
 /**
@@ -53,7 +62,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return "";
+    return question.id + ":" + question.name.substring(0, 9);
 }
 
 /**
