@@ -141,8 +141,10 @@ export function injectPositive(values: number[]): number[] {
             values.indexOf(value) < negativeIndex ? (num += value) : (num += 0),
         );
 
-        values.splice(negativeIndex + 1, 0, sum);
-        return values;
+        const injectedArray = [...values];
+        injectedArray.splice(negativeIndex + 1, 0, sum);
+
+        return injectedArray;
     } else {
         const posOption = values.reduce(
             (sum: number, value: number): number => (sum += value),
