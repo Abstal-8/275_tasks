@@ -129,27 +129,32 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
+    const posArray = [...values];
+    const finalPos = [...values];
     const negativeCheck = values.some((value: number): boolean => value < 0);
 
     if (negativeCheck) {
-        const negativeIndex = values.reduce(
-            (index: number, value: number): number =>
-                value < 0 ? (index = values.indexOf(value)) : (index += 0),
+        const negativeIndex = values.findIndex(
+            (val: number): boolean => val < 0,
         );
 
-        const sum = values.reduce((num: number, value: number): number =>
-            values.indexOf(value) < negativeIndex ? (num += value) : (num += 0),
+        const sum = values.reduce(
+            (num: number, value: number): number =>
+                values.indexOf(value) < negativeIndex ? num + value : num,
+            0,
         );
 
         const injectedArray = [...values];
         injectedArray.splice(negativeIndex + 1, 0, sum);
 
         return injectedArray;
-    } else {
-        const posOption = values.reduce(
-            (sum: number, value: number): number => (sum += value),
-        );
-        values.push(posOption);
-        return values;
     }
+    const posOption = posArray.reduce(
+        (sum: number, value: number): number => sum + value,
+        0,
+    );
+
+    finalPos.push(posOption);
+
+    return finalPos;
 }
