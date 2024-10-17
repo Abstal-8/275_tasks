@@ -8,25 +8,9 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
-<<<<<<< HEAD
     type: QuestionType,
 ): Question {
-    const blankQuestion: Question = {
-        id: id,
-        name: name,
-        type: type,
-        body: "",
-        expected: "",
-        options: [],
-        points: 1,
-        published: false,
-    };
-    return blankQuestion;
-=======
-    type: QuestionType
-): Question {
     return {};
->>>>>>> upstream/task-state
 }
 
 /**
@@ -37,13 +21,7 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-<<<<<<< HEAD
-    return (
-        question.expected.toLowerCase().trim() === answer.toLowerCase().trim()
-    );
-=======
     return false;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -53,20 +31,7 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-<<<<<<< HEAD
-    const externalQuestion = { ...question };
-
-    if (question.type === "short_answer_question") {
-        return true;
-    } else {
-        const validResponse = externalQuestion.options.some(
-            (value: string): boolean => answer === value,
-        );
-        return validResponse;
-    }
-=======
     return false;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -76,11 +41,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-<<<<<<< HEAD
-    return question.id + ": " + question.name.substring(0, 10);
-=======
     return "";
->>>>>>> upstream/task-state
 }
 
 /**
@@ -101,31 +62,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-<<<<<<< HEAD
-    const followQuestion = { ...question };
-    if (followQuestion.type === "short_answer_question") {
-        return "# " + followQuestion.name + "\n" + followQuestion.body;
-    } else {
-        const optionList = followQuestion.options.map(
-            (value: string): string => "- " + value,
-        );
-
-        const finalList = optionList.reduce(
-            (form: string, message: string): string => form + "\n" + message,
-        );
-
-        return (
-            "# " +
-            followQuestion.name +
-            "\n" +
-            followQuestion.body +
-            "\n" +
-            finalList
-        );
-    }
-=======
     return "";
->>>>>>> upstream/task-state
 }
 
 /**
@@ -133,12 +70,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-<<<<<<< HEAD
-    const newQuestion = { ...question, name: newName };
-    return newQuestion;
-=======
     return question;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -147,12 +79,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-<<<<<<< HEAD
-    const pubQuestion = { ...question, published: !question.published };
-    return pubQuestion;
-=======
     return question;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -162,17 +89,7 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-<<<<<<< HEAD
-    const copyQuestion = {
-        ...oldQuestion,
-        name: "Copy of " + oldQuestion.name,
-        published: false,
-        id: id,
-    };
-    return copyQuestion;
-=======
     return oldQuestion;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -183,15 +100,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-<<<<<<< HEAD
-    const addList = {
-        ...question,
-        options: [...question.options, newOption],
-    };
-    return addList;
-=======
     return question;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -206,20 +115,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
-<<<<<<< HEAD
     { points }: { points: number },
 ): Question {
-    const mergedList = {
-        ...contentQuestion,
-        name: name,
-        id: id,
-        points: points,
-        published: false,
-    };
-    return mergedList;
-=======
-    { points }: { points: number }
-): Question {
     return contentQuestion;
->>>>>>> upstream/task-state
 }

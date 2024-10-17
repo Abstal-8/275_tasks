@@ -9,11 +9,7 @@ import {
     renameQuestion,
     publishQuestion,
     addOption,
-<<<<<<< HEAD
-    mergeQuestion,
-=======
     mergeQuestion
->>>>>>> upstream/task-state
 } from "./objects";
 import testQuestionData from "./data/questions.json";
 import backupQuestionData from "./data/questions.json";
@@ -29,11 +25,7 @@ const { BLANK_QUESTIONS, SIMPLE_QUESTIONS }: Record<string, Question[]> =
 // We have backup versions of the data to make sure all changes are immutable
 const {
     BLANK_QUESTIONS: BACKUP_BLANK_QUESTIONS,
-<<<<<<< HEAD
-    SIMPLE_QUESTIONS: BACKUP_SIMPLE_QUESTIONS,
-=======
     SIMPLE_QUESTIONS: BACKUP_SIMPLE_QUESTIONS
->>>>>>> upstream/task-state
 }: Record<string, Question[]> = backupQuestionData as Record<
     string,
     Question[]
@@ -46,11 +38,7 @@ const [
     BACKUP_ADDITION_QUESTION,
     BACKUP_LETTER_QUESTION,
     BACKUP_COLOR_QUESTION,
-<<<<<<< HEAD
-    BACKUP_SHAPE_QUESTION,
-=======
     BACKUP_SHAPE_QUESTION
->>>>>>> upstream/task-state
 ] = BACKUP_SIMPLE_QUESTIONS;
 
 ////////////////////////////////////////////
@@ -60,21 +48,6 @@ describe("Testing the object functions", () => {
     //////////////////////////////////
     // makeBlankQuestion
 
-<<<<<<< HEAD
-    test("(3 pts) Testing the makeBlankQuestion function", () => {
-        expect(
-            makeBlankQuestion(1, "Question 1", "multiple_choice_question"),
-        ).toEqual(BLANK_QUESTIONS[0]);
-        expect(
-            makeBlankQuestion(
-                47,
-                "My New Question",
-                "multiple_choice_question",
-            ),
-        ).toEqual(BLANK_QUESTIONS[1]);
-        expect(
-            makeBlankQuestion(2, "Question 2", "short_answer_question"),
-=======
     test("Testing the makeBlankQuestion function", () => {
         expect(
             makeBlankQuestion(1, "Question 1", "multiple_choice_question")
@@ -84,17 +57,12 @@ describe("Testing the object functions", () => {
         ).toEqual(BLANK_QUESTIONS[1]);
         expect(
             makeBlankQuestion(2, "Question 2", "short_answer_question")
->>>>>>> upstream/task-state
         ).toEqual(BLANK_QUESTIONS[2]);
     });
 
     ///////////////////////////////////
     // isCorrect
-<<<<<<< HEAD
-    test("(3 pts) Testing the isCorrect function", () => {
-=======
     test("Testing the isCorrect function", () => {
->>>>>>> upstream/task-state
         expect(isCorrect(ADDITION_QUESTION, "4")).toEqual(true);
         expect(isCorrect(ADDITION_QUESTION, "2")).toEqual(false);
         expect(isCorrect(ADDITION_QUESTION, " 4\n")).toEqual(true);
@@ -113,11 +81,7 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // isValid
-<<<<<<< HEAD
-    test("(3 pts) Testing the isValid function", () => {
-=======
     test("Testing the isValid function", () => {
->>>>>>> upstream/task-state
         expect(isValid(ADDITION_QUESTION, "4")).toEqual(true);
         expect(isValid(ADDITION_QUESTION, "2")).toEqual(true);
         expect(isValid(ADDITION_QUESTION, " 4\n")).toEqual(true);
@@ -140,11 +104,7 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // toShortForm
-<<<<<<< HEAD
-    test("(3 pts) Testing the toShortForm function", () => {
-=======
     test("Testing the toShortForm function", () => {
->>>>>>> upstream/task-state
         expect(toShortForm(ADDITION_QUESTION)).toEqual("1: Addition");
         expect(toShortForm(LETTER_QUESTION)).toEqual("2: Letters");
         expect(toShortForm(COLOR_QUESTION)).toEqual("5: Colors");
@@ -154,11 +114,7 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // toMarkdown
-<<<<<<< HEAD
-    test("(3 pts) Testing the toMarkdown function", () => {
-=======
     test("Testing the toMarkdown function", () => {
->>>>>>> upstream/task-state
         expect(toMarkdown(ADDITION_QUESTION)).toEqual(`# Addition
 What is 2+2?`);
         expect(toMarkdown(LETTER_QUESTION)).toEqual(`# Letters
@@ -185,15 +141,9 @@ What shape can you make with one line?
 
     ///////////////////////////////////
     // renameQuestion
-<<<<<<< HEAD
-    test("(3 pts) Testing the renameQuestion function", () => {
-        expect(
-            renameQuestion(ADDITION_QUESTION, "My Addition Question"),
-=======
     test("Testing the renameQuestion function", () => {
         expect(
             renameQuestion(ADDITION_QUESTION, "My Addition Question")
->>>>>>> upstream/task-state
         ).toEqual({
             id: 1,
             name: "My Addition Question",
@@ -202,17 +152,10 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 1,
-<<<<<<< HEAD
-            published: true,
-        });
-        expect(
-            renameQuestion(SHAPE_QUESTION, "I COMPLETELY CHANGED THIS NAME"),
-=======
             published: true
         });
         expect(
             renameQuestion(SHAPE_QUESTION, "I COMPLETELY CHANGED THIS NAME")
->>>>>>> upstream/task-state
         ).toEqual({
             id: 9,
             name: "I COMPLETELY CHANGED THIS NAME",
@@ -221,11 +164,7 @@ What shape can you make with one line?
             options: ["square", "triangle", "circle"],
             expected: "circle",
             points: 2,
-<<<<<<< HEAD
-            published: false,
-=======
             published: false
->>>>>>> upstream/task-state
         });
     });
 
@@ -235,11 +174,7 @@ What shape can you make with one line?
     test("(3 pts) Testing the publishQuestion function", () => {
 =======
     test("Testing the publishQuestion function", () => {
->>>>>>> upstream/task-state
-        expect(publishQuestion(ADDITION_QUESTION)).toEqual({
-            id: 1,
             name: "Addition",
-            body: "What is 2+2?",
             type: "short_answer_question",
             options: [],
             expected: "4",
