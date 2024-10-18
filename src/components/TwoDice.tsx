@@ -15,12 +15,19 @@ export function TwoDice(): React.JSX.Element {
     const [leftState, setLeft] = useState(0);
     const [rightState, setRight] = useState(1);
 
+    function rollLeft(): void {
+        setLeft(d6());
+    }
+    function rollRight(): void {
+        setRight(d6());
+    }
+
     return (
         <div>
             <span data-testid="left-die"> {leftState}</span>
-            <Button onClick={() => setLeft(d6())}>Roll Left</Button>
+            <Button onClick={rollLeft}>Roll Left</Button>
             <span data-testid="right-die"> {rightState}</span>
-            <Button onClick={() => setRight(d6())}> Roll Right</Button>
+            <Button onClick={rollRight}> Roll Right</Button>
             {leftState === rightState ?
                 leftState === 1 && rightState === 1 ?
                     "You Lose!"
