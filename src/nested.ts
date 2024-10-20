@@ -100,17 +100,14 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    const converter = questions.map(
-        (val: Question): string =>
-            `${val.id},${val.name},${val.options.length},${val.points},${val.published}` +
-            "\n" +
-            val.options.reduce(
-                (form: string, curr: string): string => form + "," + curr + " ",
-                "",
-            ),
-    );
+    // Start with the CSV headers
+    const headers = "id,name,options,points,published";
+    const rows = questions.map((val: Question): string => {
+        return `${val.id},${val.name},${val.options.length},${val.points},${val.published}`;
+    });
 
-    return converter.toString().replaceAll(" ", "\n");
+    // Combine headers and rows
+    return [headers, ...rows].join("\n");
 }
 
 /**
